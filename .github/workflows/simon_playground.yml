@@ -8,6 +8,7 @@ permissions:
 
 jobs:
   demo_evidence:
+    environment: ProductDemo
     runs-on: ubuntu-latest
     name: simon's evidence demo
     steps:
