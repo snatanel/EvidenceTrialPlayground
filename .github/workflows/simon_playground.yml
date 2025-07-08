@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  demo_evidence:
+    runs-on: default
+    name: simon's evidence demo
+    steps:
+      - name: print hey
+        run: echo ${{vars.ARTIFACTORY_URL}}
+  
