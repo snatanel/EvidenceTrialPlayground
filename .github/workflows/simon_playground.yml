@@ -11,7 +11,15 @@ jobs:
     environment: ProductDemo
     runs-on: ubuntu-latest
     name: simon's evidence demo
+
+    
     steps:
+      - name: Install jfrog cli
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: ${{ vars.ARTIFACTORY_URL }}
+          JF_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
+          
       - name: print hey
         run: echo ${{vars.ARTIFACTORY_URL}}
           JSON_DATA='{"name":"GitHub Actions"}'
