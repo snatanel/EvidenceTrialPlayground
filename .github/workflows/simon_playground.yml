@@ -31,10 +31,16 @@ jobs:
           ls -lta
           cat predicate.json
           
-      - name: create evidence
+      - name: create evidence on package
         run: |
           jf evd create --predicate predicate.json \
           --predicate-type simon3 --package-name hello-world \
           --package-version simon --package-repo-name example-project-docker-dev-local \
+          --key "${{ secrets.PRIVATE_KEY }}"
+
+      - name: create evidence on release bundle
+        run: |
+          jf evd create --predicate predicate.json \
+          --predicate-type simon3 --release-bundle simon --release-bundle-version 1.2.3 \
           --key "${{ secrets.PRIVATE_KEY }}"
   
