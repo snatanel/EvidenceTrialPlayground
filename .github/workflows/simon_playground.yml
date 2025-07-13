@@ -33,7 +33,8 @@ jobs:
           
       - name: create evidence
         run: |
-          jf evd create --key ${{ secrets.PRIVATE_KEY }} --predicate predicate.json \
+          jf evd create --predicate predicate.json \
           --predicate-type simon3 --package-name hello-world \
-          --package-version simon --package-repo-name example-project-docker-dev-local
+          --package-version simon --package-repo-name example-project-docker-dev-local \
+          --key "${{ secrets.PRIVATE_KEY }}"
   
