@@ -21,8 +21,10 @@ jobs:
           JF_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
           
       - name: print hey
-        run: echo ${{vars.ARTIFACTORY_URL}}
+        run: |
+          echo ${{vars.ARTIFACTORY_URL}}
           JSON_DATA='{"name":"GitHub Actions"}'
+          
           echo "$JSON_DATA" > output.json
           jf evd create --key ${{ secrets.PRIVATE_KEY }} --predicate output.json --predicate-type simon3 --package-name hello-world --package-version simon --package-repo-name example-project-docker-dev-local
   
