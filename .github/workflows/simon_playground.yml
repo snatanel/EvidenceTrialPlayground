@@ -14,4 +14,7 @@ jobs:
     steps:
       - name: print hey
         run: echo ${{vars.ARTIFACTORY_URL}}
+          JSON_DATA='{"name":"GitHub Actions"}'
+          echo "$JSON_DATA" > output.json
+          jf evd create --key private.pem --predicate output.json --predicate-type simon3 --package-name hello-world --package-version simon --package-repo-name example-project-docker-dev-local
   
